@@ -127,7 +127,7 @@ Remove-Item "C:\Windows\Cursors\Future Dark W11 HiDPI" -Recurse
 ## Build from source
 
 The cursors are built with [w11-cursor-toolkit](https://github.com/hervad/w11-cursor-toolkit) from the original
-repository, pinned as a git submodule in [`upstream/`](upstream/). Rendering needs the native cairo library; see the
+repository, pinned as a git submodule in `upstream/` ([that exact commit](https://github.com/yeyushengfan258/Future-cursors/tree/587c14d2f5bd2dc34095a4efbb1a729eb72a1d36)). Rendering needs the native cairo library; see the
 toolkit's README for how to get it on Windows or Linux.
 
 ```powershell
