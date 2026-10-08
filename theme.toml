@@ -7,10 +7,10 @@ schema = 1
 [theme]
 slug        = "future"               # used in zip names: <slug>-<variant>-w11-hidpi-v<version>.zip
 name        = "Future cursors"
-version     = "0.1.0"                   # YOUR port version (tag v0.1.0 to release)
+version     = "0.2.0"                   # YOUR port version (tag v0.1.0 to release)
 license     = "GPL-3.0-only"               # artwork license = upstream license (GPL-3.0-only, GPL-2.0-only, ...)
 porter      = "Vadym Herman (hervad)"
-description = "Future cursors (amber and cyan) - based on capitaine-cursors"
+description = "Future cursors (amber, cyan and dark) - based on capitaine-cursors"
 
 [upstream]                              # provenance - copied into README/CREDITS, also documents the pin
 kind    = "git"                         # git | tarball
@@ -19,7 +19,7 @@ ref     = "587c14d2f5bd2dc34095a4efbb1a729eb72a1d36"   # latest commit (2021-07-
 path    = "upstream"                    # git submodule (or unpacked tarball) location
 authors = ["yeyushengfan258"]
 license = "GPL-3.0 (repo LICENSE = GPL v3 text; no 'only'/'or later' notice). Based on capitaine-cursors (LGPL-3.0)"
-page    = "https://www.gnome-look.org/p/1457141 (cyan: https://www.gnome-look.org/p/1465392)"
+page    = "https://www.gnome-look.org/p/1457141 (cyan: https://www.gnome-look.org/p/1465392, dark: https://www.gnome-look.org/p/1457884)"
 
 [render]
 renderer       = "cairosvg"
@@ -28,10 +28,12 @@ hotspot_mode   = "point"   # upstream's config scales its 32 px hotspots exactly
 strip_filtered = true      # upstream bakes a soft shadow in as filtered dark copies (often on groups). Rendered with and
                            # without them: 0 artwork pixels change in all 118 shipped files (svg + svg-cyan) (ADR-14)
 
-# Two gnome-look pages, one artwork (ADR-9 amendment, 2026-10-08): Future cursors (p/1457141) = src/svg, Future-cyan
-# cursors (p/1465392) = src/svg-cyan - same upstream repo/commit, all 93 drawings identical in shape (0 differing alpha
-# px at 128 px), only the accent colour differs (#ffba00/#ffb900 -> #23afc8). svg-black / svg-dark (own pages) are not
-# in scope.
+# Three gnome-look pages, one artwork (ADR-9 amendment, 2026-10-08), same upstream repo/commit:
+#   Future cursors (p/1457141) = src/svg; Future-cyan cursors (p/1465392) = src/svg-cyan - all 93 drawings identical in
+#   shape (0 differing alpha px at 128 px), accent #ffba00/#ffb900 -> #23afc8;
+#   Future-dark cursors (p/1457884) = src/svg-dark - accents in greys (#646464..#c8c8c8); shapes identical except
+#   copy.svg (not a Windows role) and <= 11 alpha px of 16,384 at 128 px in default/progress (the arrow's accent).
+# svg-black (Future-black, p/1519633: inverted, black arrow) is not in scope.
 [[variants]]
 id          = "default"
 scheme_name = "Future W11 HiDPI"
@@ -41,6 +43,11 @@ svg_dir     = "upstream/src/svg"
 id          = "cyan"
 scheme_name = "Future Cyan W11 HiDPI"
 svg_dir     = "upstream/src/svg-cyan"
+
+[[variants]]
+id          = "dark"
+scheme_name = "Future Dark W11 HiDPI"
+svg_dir     = "upstream/src/svg-dark"
 
 # Hotspots in 32-px design units = upstream src/config/*.cursor ("x1" line), except two that miss the art:
 #   help     (4,4) -> (6,4): same arrow as default; upstream's hotzone fix (f55048a/3994eeb) moved default to (6,4)

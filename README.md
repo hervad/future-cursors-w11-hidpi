@@ -3,13 +3,13 @@
 # Future Cursors for Windows
 
 **Future cursors by yeyushengfan258 for Windows 11, rendered from the original vector artwork at every size Windows
-picks for your display scale and pointer size. Amber and Cyan variants.**
+picks for your display scale and pointer size. Amber, Cyan and Dark variants.**
 
 [![Download](https://img.shields.io/github/v/release/hervad/future-cursors-w11-hidpi?label=download&style=flat-square&color=2ea44f)](https://github.com/hervad/future-cursors-w11-hidpi/releases/latest)
 [![Windows 11](https://img.shields.io/badge/Windows-11-0078D4?style=flat-square)](#install)
 [![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue?style=flat-square)](LICENSE)
 
-<img src="docs/preview.png" alt="All 15 Future cursors in both variants: Amber (top) and Cyan (bottom)" width="100%">
+<img src="docs/preview.png" alt="All 15 Future cursors in the three variants: Amber, Cyan and Dark (grey accents)" width="100%">
 
 </div>
 
@@ -26,15 +26,15 @@ If Windows ever shows a different scheme after you change the pointer size, pick
 
 ## Pick a variant
 
-| | Amber | Cyan |
-| --- | --- | --- |
-| **Original page** | [Future cursors](https://www.gnome-look.org/p/1457141) | [Future-cyan cursors](https://www.gnome-look.org/p/1465392) |
-| **Zip** | `future-default-w11-hidpi-v….zip` | `future-cyan-w11-hidpi-v….zip` |
-| **Scheme name** | Future W11 HiDPI | Future Cyan W11 HiDPI |
+| | Amber | Cyan | Dark |
+| --- | --- | --- | --- |
+| **Original page** | [Future cursors](https://www.gnome-look.org/p/1457141) | [Future-cyan cursors](https://www.gnome-look.org/p/1465392) | [Future-dark cursors](https://www.gnome-look.org/p/1457884) |
+| **Zip** | `future-default-w11-hidpi-v….zip` | `future-cyan-w11-hidpi-v….zip` | `future-dark-w11-hidpi-v….zip` |
+| **Scheme name** | Future W11 HiDPI | Future Cyan W11 HiDPI | Future Dark W11 HiDPI |
 
-Both are the same white cursors with a dark outline, so they stay visible on light and dark backgrounds; only the
-accent colour differs. The author publishes them as two themes from the same source, so they ship together here.
-Install both and switch whenever you like.
+All three are the same white cursors with a dark outline, so they stay visible on light and dark backgrounds; only
+the accent colour differs (Dark uses greys). The author publishes them as separate themes from the same source, so
+they ship together here. Install all three and switch whenever you like.
 
 ## Why they stay sharp
 
@@ -110,6 +110,7 @@ at every other pointer size and display scale; its animations run 24 and 22 fram
 ```powershell
 Remove-Item "C:\Windows\Cursors\Future W11 HiDPI" -Recurse
 Remove-Item "C:\Windows\Cursors\Future Cyan W11 HiDPI" -Recurse
+Remove-Item "C:\Windows\Cursors\Future Dark W11 HiDPI" -Recurse
 ```
 
 ## Build from source
@@ -122,7 +123,7 @@ toolkit's README for how to get it on Windows or Linux.
 git clone --recurse-submodules https://github.com/hervad/future-cursors-w11-hidpi
 cd future-cursors-w11-hidpi
 python -m pip install "w11cursor @ git+https://github.com/hervad/w11-cursor-toolkit@v0.2.0"
-w11cursor build    theme.toml --out dist      # both variants + zips
+w11cursor build    theme.toml --out dist      # all three variants + zips
 w11cursor validate theme.toml --dist dist     # re-read every file: sizes, hotspots, frames, timing
 ```
 
@@ -133,8 +134,9 @@ How each cursor maps to the original files is described in [`theme.toml`](theme.
 ## Credits
 
 The artwork is [Future cursors](https://github.com/yeyushengfan258/Future-cursors) by yeyushengfan258, also on
-gnome-look as [Future cursors](https://www.gnome-look.org/p/1457141) and
-[Future-cyan cursors](https://www.gnome-look.org/p/1465392). It is based on
+gnome-look as [Future cursors](https://www.gnome-look.org/p/1457141),
+[Future-cyan cursors](https://www.gnome-look.org/p/1465392) and
+[Future-dark cursors](https://www.gnome-look.org/p/1457884). It is based on
 [capitaine-cursors](https://github.com/keeferrourke/capitaine-cursors) by Keefer Rourke. This project only packages
 it for Windows. See [CREDITS.md](CREDITS.md) for every change from the original.
 

@@ -6,9 +6,9 @@
   `587c14d2f5bd2dc34095a4efbb1a729eb72a1d36` (2021-07-16, latest commit)
 - upstream license: GPL-3.0. `LICENSE` = GPL v3 text (SHA-256 `a0ee7460…7aac0e`), copied byte-for-byte. No
   "only"/"or later" notice. README: "based on capitaine-cursors" (LGPL-3.0, Keefer Rourke) -> credited.
-- variants: default = amber (`src/svg`, page p/1457141) and cyan (`src/svg-cyan`, page p/1465392) - one repo for
-  both (maintainer, 2026-10-08; ADR-9 amendment). `svg-black` / `svg-dark` have their own pages (p/1519633,
-  p/1457884) and are not in scope.
+- variants: default = amber (`src/svg`, page p/1457141), cyan (`src/svg-cyan`, page p/1465392) and dark
+  (`src/svg-dark`, page p/1457884, added at the maintainer's request 2026-10-08 -> v0.2.0) - one repo for all
+  (ADR-9 amendment). `svg-black` (Future-black, p/1519633; inverted, black arrow) is not in scope.
 
 ## Status
 Public at https://github.com/hervad/future-cursors-w11-hidpi (2026-10-08), CI on toolkit v0.2.0: validate OK, Windows
@@ -44,6 +44,10 @@ Future-cyan merged in (2026-10-08): no separate future-cyan-cursors-w11-hidpi re
   (that element removed; 126 edge px change). Scan of every shipped source in Polar, Material and Future (remove each
   shape, keep those visible only as a thin line): help was the only light-under-dark halo; the other hits are real
   outlines (unavailable rings) or interior seams (Material busy petals).
+- **Dark** (2026-10-08): store page p/1457884 "Future-dark cursors" by the same author; its compiled cursors use
+  exactly svg-dark's greys (#646464, #787878, #8c8c8c, #b4b4b4, #c8c8c8). Shapes vs svg at 128 px: identical except
+  copy.svg (1,336 px; not a Windows role), default.svg (11 px) and progress frames (7 px) of 16,384 - accent detail.
+  Shadow check: 0 on-top px in 59 shipped files; help halo fixed with overrides/dark/help.svg. Loader 51/51 (3 variants).
 - **Existing Windows port:** chiyuki0325/Future-cyan-cursors-Windows (7a5ee50, 2023-01-04), inspected read-only in
   a temp folder (nothing copied): 15 files, each one 32 px BMP; wait 24 frames / progress 22 frames at 2 jiffies
   (800 / 733 ms per cycle); hotspots (7,5) on not-allowed and the animations. None found for amber Future.
@@ -60,3 +64,4 @@ Future-cyan merged in (2026-10-08): no separate future-cyan-cursors-w11-hidpi re
       installed files (Help = the halo-free override); maintainer checked on screen: "looks ok"
 - [x] GitHub repo created (public); CI green
 - [x] tag v0.1.0 (2026-10-08)
+- [ ] v0.2.0 adds Dark: maintainer's on-screen check, then tag v0.2.0
