@@ -11,7 +11,8 @@
   p/1457884) and are not in scope.
 
 ## Status
-Builds and validates locally (2 variants); Windows loader 34/34, .ani timing 4/4. Not yet a GitHub repo.
+Public at https://github.com/hervad/future-cursors-w11-hidpi (2026-10-08), CI on toolkit v0.2.0: validate OK, Windows
+loader 34/34. Released v0.1.0 (2026-10-08).
 Future-cyan merged in (2026-10-08): no separate future-cyan-cursors-w11-hidpi repo.
 
 ## Findings
@@ -55,5 +56,7 @@ Future-cyan merged in (2026-10-08): no separate future-cyan-cursors-w11-hidpi re
 - [x] Hotspots from upstream config; two corrected with evidence
 - [x] `w11cursor build` + `validate` green locally; Test-LoadCursors 34/34; Get-AniFrameTiming 4/4
 - [x] README, CREDITS, preview image
-- [ ] Maintainer: preview and hotspot corrections confirmed by eye; installed and checked on screen
-- [ ] GitHub repo created; tag v0.1.0
+- [x] Installed on Windows 11 25H2 (2026-10-08): both variants, loader 34/34 on C:\Windows\Cursors, live Arrow/Help =
+      installed files (Help = the halo-free override); maintainer checked on screen: "looks ok"
+- [x] GitHub repo created (public); CI green
+- [x] tag v0.1.0 (2026-10-08)
