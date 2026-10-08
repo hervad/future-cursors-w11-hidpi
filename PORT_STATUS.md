@@ -65,4 +65,6 @@ Future-cyan merged in (2026-10-08): no separate future-cyan-cursors-w11-hidpi re
       installed files (Help = the halo-free override); maintainer checked on screen: "looks ok"
 - [x] GitHub repo created (public); CI green
 - [x] tag v0.1.0 (2026-10-08)
-- [ ] v0.2.0 adds Dark: maintainer's on-screen check, then tag v0.2.0
+- [x] v0.2.0 (2026-10-08): adds Dark; amber scheme renamed "Future Amber W11 HiDPI". Installed here (README upgrade
+      steps run for real: old scheme + folder removed), maintainer approved the release; release zips match
+      SHA256SUMS, INF scheme names correct, loader 17/17 per variant
