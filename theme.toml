@@ -1,0 +1,114 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# theme.toml - the ONLY build input of a theme repo. Read by `w11cursor`.
+# Fill every TODO, then:  w11cursor build theme.toml && w11cursor validate theme.toml
+# ─────────────────────────────────────────────────────────────────────────────
+schema = 1
+
+[theme]
+slug        = "future"               # used in zip names: <slug>-<variant>-w11-hidpi-v<version>.zip
+name        = "Future cursors"
+version     = "0.1.0"                   # YOUR port version (tag v0.1.0 to release)
+license     = "GPL-3.0-only"               # artwork license = upstream license (GPL-3.0-only, GPL-2.0-only, ...)
+porter      = "Vadym Herman (hervad)"
+description = "Future cursors - based on capitaine-cursors"
+
+[upstream]                              # provenance - copied into README/CREDITS, also documents the pin
+kind    = "git"                         # git | tarball
+url     = "https://github.com/yeyushengfan258/Future-cursors"
+ref     = "587c14d2f5bd2dc34095a4efbb1a729eb72a1d36"   # latest commit (2021-07-16)
+path    = "upstream"                    # git submodule (or unpacked tarball) location
+authors = ["yeyushengfan258"]
+license = "GPL-3.0 (repo LICENSE = GPL v3 text; no 'only'/'or later' notice). Based on capitaine-cursors (LGPL-3.0)"
+page    = "https://www.gnome-look.org/p/1457141"
+
+[render]
+renderer       = "cairosvg"
+design_canvas  = 32        # every SVG: viewBox="0 0 32 32" (upstream build.sh renders its 1x at 32 px)
+hotspot_mode   = "point"   # upstream's config scales its 32 px hotspots exactly (6,4 -> 8,5 -> 9,6 -> 12,8)
+strip_filtered = true      # upstream bakes a soft shadow in as filtered dark copies (often on groups). Rendered with and
+                           # without them: 0 artwork pixels change in all 118 shipped files (svg + svg-cyan) (ADR-14)
+
+# Only the variant on this gnome-look page (Future cursors, p/1457141). svg-cyan is its own page and repo
+# (future-cyan-cursors-w11-hidpi); svg-black / svg-dark have their own pages and are not in scope.
+[[variants]]
+id          = "default"
+scheme_name = "Future W11 HiDPI"
+svg_dir     = "upstream/src/svg"
+
+# Hotspots in 32-px design units = upstream src/config/*.cursor ("x1" line), except two that miss the art:
+#   help     (4,4) -> (6,4): same arrow as default; upstream's hotzone fix (f55048a/3994eeb) moved default to (6,4)
+#                            but not help, whose (4,4) lies 2 px left of the tip, outside the drawing.
+#   up-arrow (16,4) -> (16,8): the drawing starts at y = 8.0; (16,4) is 4 px above the tip.
+# Animation: 23 frames at 30 ms = 1.8 jiffies -> whole jiffies spread: 41 = 683 ms per turn (upstream 690 ms).
+
+[cursors.arrow]
+svg = "default.svg"
+hotspot = [6, 4]
+
+[cursors.help]
+svg = "help.svg"
+hotspot = [6, 4]
+
+[cursors.working]
+frames = "progress-{n:02d}.svg"
+frame_count = 23
+frame_start = 1
+delay = [2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1]
+hotspot = [6, 4]
+
+[cursors.busy]
+frames = "wait-{n:02d}.svg"
+frame_count = 23
+frame_start = 1
+delay = [2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1]
+hotspot = [16, 16]
+
+[cursors.precision]
+svg = "crosshair.svg"
+hotspot = [16, 16]
+
+[cursors.text]
+svg = "text.svg"
+hotspot = [16, 16]
+
+[cursors.handwriting]
+svg = "pencil.svg"
+hotspot = [4, 29]
+
+[cursors.unavailable]
+svg = "not-allowed.svg"
+hotspot = [16, 16]
+
+[cursors.vert]
+svg = "size_ver.svg"
+hotspot = [16, 16]
+
+[cursors.horz]
+svg = "size_hor.svg"
+hotspot = [16, 16]
+
+[cursors.dgn1]         # NW-SE
+svg = "size_fdiag.svg"
+hotspot = [16, 16]
+
+[cursors.dgn2]         # NE-SW
+svg = "size_bdiag.svg"
+hotspot = [16, 16]
+
+[cursors.move]
+svg = "fleur.svg"
+hotspot = [16, 16]
+
+[cursors.alternate]
+svg = "up-arrow.svg"
+hotspot = [16, 8]
+
+[cursors.link]
+svg = "pointer.svg"
+hotspot = [13, 7]
+
+[cursors.pin]          # no Future artwork: reuse the hand, like Polar and Material
+same_as = "link"
+
+[cursors.person]
+same_as = "link"
