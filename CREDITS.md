@@ -26,4 +26,8 @@ the latest). The gnome-look download has the same artwork with the hotspots from
   - Alternate Select (16,4) -> (16,8): the arrow's tip is at y = 8; (16,4) is 4 px above it.
 - Animation: 23 frames as upstream; 30 ms per frame approximated in whole 1/60 s steps (683 ms per cycle instead of
   690 ms). The busy animation's last frame is empty in upstream too.
-- Windows role mapping incl. Pin and Person (both use the pointing hand). No files in overrides/.
+- Help badge: `overrides/default/help.svg` and `overrides/cyan/help.svg` are upstream's `help.svg` with one element
+  removed - a white disc exactly under the badge's dark ring (same centre, same radius 6.5). It was hidden on purpose
+  but anti-aliasing let it show as a light halo around the ring once the shadow was gone (upstream's own Inkscape
+  build shows no halo). Removing it changes only the ring's outer edge pixels.
+- Windows role mapping incl. Pin and Person (both use the pointing hand).

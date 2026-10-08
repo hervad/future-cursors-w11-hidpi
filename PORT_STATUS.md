@@ -37,6 +37,12 @@ Future-cyan merged in (2026-10-08): no separate future-cyan-cursors-w11-hidpi re
   (#ffba00/#ffb900 -> #23afc8), 13 re-saved by Inkscape (metadata/serialisation). Rendered at 128 px all 93 have
   identical alpha (0 differing px). The store's cyan tarball (compiled Xcursor only) has accent exactly #23afc8 and
   the same 4 sizes as upstream's build -> it is svg-cyan.
+- **Help halo** (maintainer spotted, 2026-10-08): white circle (21.5,23.5) r 6.5 sits exactly under the dark badge
+  ring -> light anti-aliasing fringe ("disconnected ring") on dark backgrounds: 48 light px in the band outside the
+  ring at 96 px; 0 in upstream's store build (Inkscape + baked shadow). Fixed with overrides/{default,cyan}/help.svg
+  (that element removed; 126 edge px change). Scan of every shipped source in Polar, Material and Future (remove each
+  shape, keep those visible only as a thin line): help was the only light-under-dark halo; the other hits are real
+  outlines (unavailable rings) or interior seams (Material busy petals).
 - **Existing Windows port:** chiyuki0325/Future-cyan-cursors-Windows (7a5ee50, 2023-01-04), inspected read-only in
   a temp folder (nothing copied): 15 files, each one 32 px BMP; wait 24 frames / progress 22 frames at 2 jiffies
   (800 / 733 ms per cycle); hotspots (7,5) on not-allowed and the animations. None found for amber Future.
