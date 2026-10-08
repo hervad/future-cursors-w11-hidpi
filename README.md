@@ -3,29 +3,38 @@
 # Future Cursors for Windows
 
 **Future cursors by yeyushengfan258 for Windows 11, rendered from the original vector artwork at every size Windows
-picks for your display scale and pointer size.**
+picks for your display scale and pointer size. Amber and Cyan variants.**
 
 [![Download](https://img.shields.io/github/v/release/hervad/future-cursors-w11-hidpi?label=download&style=flat-square&color=2ea44f)](https://github.com/hervad/future-cursors-w11-hidpi/releases/latest)
 [![Windows 11](https://img.shields.io/badge/Windows-11-0078D4?style=flat-square)](#install)
 [![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue?style=flat-square)](LICENSE)
 
-<img src="docs/preview.png" alt="All 15 Future cursors on a light and on a dark background" width="100%">
+<img src="docs/preview.png" alt="All 15 Future cursors in both variants: Amber (top) and Cyan (bottom)" width="100%">
 
 </div>
 
 ## Install
 
-1. **Download** `future-default-w11-hidpi-v….zip` from the [latest release](https://github.com/hervad/future-cursors-w11-hidpi/releases/latest)
+1. **Download** the zip for your colour from the [latest release](https://github.com/hervad/future-cursors-w11-hidpi/releases/latest)
    and extract it.
 2. **Right-click** `install.inf` in the extracted folder and choose **Install**, then approve the administrator prompt.
    On Windows 11, **Install** is under **Show more options**.
 3. **Apply:** Mouse Properties may open by itself; if it doesn't, press <kbd>Win</kbd>+<kbd>R</kbd> and run `main.cpl`.
-   On the **Pointers** tab, pick **Future W11 HiDPI** and click **OK**.
+   On the **Pointers** tab, pick the scheme and click **OK**.
 
 If Windows ever shows a different scheme after you change the pointer size, pick Future again in `main.cpl`.
 
-White cursors with a dark outline and amber accents, so they stay visible on light and dark backgrounds.
-Prefer cyan accents? See [Future-cyan Cursors for Windows](https://github.com/hervad/future-cyan-cursors-w11-hidpi).
+## Pick a variant
+
+| | Amber | Cyan |
+| --- | --- | --- |
+| **Original page** | [Future cursors](https://www.gnome-look.org/p/1457141) | [Future-cyan cursors](https://www.gnome-look.org/p/1465392) |
+| **Zip** | `future-default-w11-hidpi-v….zip` | `future-cyan-w11-hidpi-v….zip` |
+| **Scheme name** | Future W11 HiDPI | Future Cyan W11 HiDPI |
+
+Both are the same white cursors with a dark outline, so they stay visible on light and dark backgrounds; only the
+accent colour differs. The author publishes them as two themes from the same source, so they ship together here.
+Install both and switch whenever you like.
 
 ## Why they stay sharp
 
@@ -70,6 +79,10 @@ flips between images it has already decoded. Measured on Windows 11 25H2 against
 Before every release, GitHub Actions loads every file with the real Windows cursor loader at several sizes; a
 failure blocks the release.
 
+An earlier Windows port of Future-cyan (chiyuki0325, 2023) has one 32 px image per cursor, so Windows resamples it
+at every other pointer size and display scale; its animations run 24 and 22 frames at 33 ms (the original: 23 at
+30 ms).
+
 ## What's included
 
 - **All 17 Windows pointer roles:** normal, help, working in background, busy, precision, text, handwriting,
@@ -78,7 +91,7 @@ failure blocks the release.
   hand variants too).
 - **Animated busy and working cursors:** 23 frames per cycle, as in the original theme.
 - **Hotspots** from the original theme, scaled to every size.
-- `install.inf` and `uninstall.cmd`, plus the license file.
+- `install.inf` and `uninstall.cmd` for each variant, plus the license file.
 
 ## Tips
 
@@ -92,10 +105,11 @@ failure blocks the release.
 
 1. Run `uninstall.cmd` from the extracted folder. It removes the scheme from the list and opens Mouse Properties.
 2. Pick another scheme and click **OK**.
-3. Delete the cursor files from an administrator PowerShell:
+3. Delete the cursor files from an administrator PowerShell, for example:
 
 ```powershell
 Remove-Item "C:\Windows\Cursors\Future W11 HiDPI" -Recurse
+Remove-Item "C:\Windows\Cursors\Future Cyan W11 HiDPI" -Recurse
 ```
 
 ## Build from source
@@ -108,7 +122,7 @@ toolkit's README for how to get it on Windows or Linux.
 git clone --recurse-submodules https://github.com/hervad/future-cursors-w11-hidpi
 cd future-cursors-w11-hidpi
 python -m pip install "w11cursor @ git+https://github.com/hervad/w11-cursor-toolkit@v0.2.0"
-w11cursor build    theme.toml --out dist      # cursors + zip
+w11cursor build    theme.toml --out dist      # both variants + zips
 w11cursor validate theme.toml --dist dist     # re-read every file: sizes, hotspots, frames, timing
 ```
 
@@ -119,7 +133,8 @@ How each cursor maps to the original files is described in [`theme.toml`](theme.
 ## Credits
 
 The artwork is [Future cursors](https://github.com/yeyushengfan258/Future-cursors) by yeyushengfan258, also on
-[gnome-look](https://www.gnome-look.org/p/1457141). It is based on
+gnome-look as [Future cursors](https://www.gnome-look.org/p/1457141) and
+[Future-cyan cursors](https://www.gnome-look.org/p/1465392). It is based on
 [capitaine-cursors](https://github.com/keeferrourke/capitaine-cursors) by Keefer Rourke. This project only packages
 it for Windows. See [CREDITS.md](CREDITS.md) for every change from the original.
 

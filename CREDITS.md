@@ -1,7 +1,7 @@
 # Credits
 
 **Artwork:** Future cursors by yeyushengfan258 - <https://github.com/yeyushengfan258/Future-cursors>
-(gnome-look: <https://www.gnome-look.org/p/1457141>). License: GPL-3.0. The repository's `LICENSE` is the GPL v3 text
+(gnome-look: <https://www.gnome-look.org/p/1457141>; cyan: <https://www.gnome-look.org/p/1465392>). License: GPL-3.0. The repository's `LICENSE` is the GPL v3 text
 with no "only" or "or later" notice anywhere; [LICENSE](LICENSE) here is that file, byte-for-byte
 (SHA-256 `a0ee746064b06d09cab0768116ec265fd0d45261d4087c9ad2c698a07c7aac0e`).
 **Based on:** [capitaine-cursors](https://github.com/keeferrourke/capitaine-cursors) by Keefer Rourke (LGPL-3.0),
@@ -14,7 +14,9 @@ the latest). The gnome-look download has the same artwork with the hotspots from
 
 ## Changes from upstream
 
-- Re-rendered from the original SVGs (`src/svg/*.svg`, 32 px canvas) at every Windows cursor size, no resampling.
+- Re-rendered from the original SVGs (`src/svg/*.svg` for Amber, `src/svg-cyan/*.svg` for Cyan; 32 px canvas) at
+  every Windows cursor size, no resampling. Both variants ship from this one repo: same artwork, only the accent
+  colour differs (all 93 drawings render with identical shapes).
 - Drop shadow left out: upstream draws it as blurred dark copies of the shapes (elements with an SVG filter).
   Rendered with and without them, no artwork pixel changes in any shipped file. Windows draws its own pointer
   shadow (toolkit ADR-14).

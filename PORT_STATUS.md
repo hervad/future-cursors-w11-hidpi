@@ -1,16 +1,18 @@
 # Port status: Future cursors
 
-- gnome-look page: https://www.gnome-look.org/p/1457141 (store API, 2026-10-08: one download `Future-cursors.tar.gz`,
-  licence field empty)
+- gnome-look pages: https://www.gnome-look.org/p/1457141 (Future) and https://www.gnome-look.org/p/1465392
+  (Future-cyan) - store API 2026-10-08: one download each, licence field empty on both
 - upstream: https://github.com/yeyushengfan258/Future-cursors, submodule `upstream/` pinned to
   `587c14d2f5bd2dc34095a4efbb1a729eb72a1d36` (2021-07-16, latest commit)
 - upstream license: GPL-3.0. `LICENSE` = GPL v3 text (SHA-256 `a0ee7460…7aac0e`), copied byte-for-byte. No
   "only"/"or later" notice. README: "based on capitaine-cursors" (LGPL-3.0, Keefer Rourke) -> credited.
-- variants in scope: default (`src/svg`). The repo also has `svg-cyan` (= future-cyan-cursors-w11-hidpi, its own
-  page p/1465392), `svg-black` and `svg-dark` (own pages p/1519633 and p/1457884; not in this project's scope).
+- variants: default = amber (`src/svg`, page p/1457141) and cyan (`src/svg-cyan`, page p/1465392) - one repo for
+  both (maintainer, 2026-10-08; ADR-9 amendment). `svg-black` / `svg-dark` have their own pages (p/1519633,
+  p/1457884) and are not in scope.
 
 ## Status
-Builds and validates locally; Windows loader 17/17, .ani timing 2/2. Not yet a GitHub repo.
+Builds and validates locally (2 variants); Windows loader 34/34, .ani timing 4/4. Not yet a GitHub repo.
+Future-cyan merged in (2026-10-08): no separate future-cyan-cursors-w11-hidpi repo.
 
 ## Findings
 - **Canvas:** all 93 SVGs `viewBox="0 0 32 32"` (29 of them `32.000001` high) -> `design_canvas = 32`; upstream
@@ -31,7 +33,13 @@ Builds and validates locally; Windows loader 17/17, .ani timing 2/2. Not yet a G
 - **Sizes:** working.ani 468 KB, busy.ani 221 KB; largest image offset 11,985 of 65,535.
 - **Load cost** (Windows 11 25H2, same run as aero): static 0.16-0.26 ms at 32-96 px (aero 0.12-0.14), animated
   2.2-3.5 ms (aero 1.2-4.1), 31 ms at 256 px (aero 19); 0 GDI/USER handles leaked over 300 loads.
-- **Existing Windows port:** none for (amber) Future found; see future-cyan for chiyuki0325's cyan port.
+- **Cyan = recolour** (2026-10-08): svg-cyan has the same 93 file names; 25 byte-identical, 55 colour-only
+  (#ffba00/#ffb900 -> #23afc8), 13 re-saved by Inkscape (metadata/serialisation). Rendered at 128 px all 93 have
+  identical alpha (0 differing px). The store's cyan tarball (compiled Xcursor only) has accent exactly #23afc8 and
+  the same 4 sizes as upstream's build -> it is svg-cyan.
+- **Existing Windows port:** chiyuki0325/Future-cyan-cursors-Windows (7a5ee50, 2023-01-04), inspected read-only in
+  a temp folder (nothing copied): 15 files, each one 32 px BMP; wait 24 frames / progress 22 frames at 2 jiffies
+  (800 / 733 ms per cycle); hotspots (7,5) on not-allowed and the animations. None found for amber Future.
 
 ## Checklist
 - [x] Upstream pinned (submodule at a commit); latest commit confirmed
@@ -39,7 +47,7 @@ Builds and validates locally; Windows loader 17/17, .ani timing 2/2. Not yet a G
 - [x] design_canvas confirmed from SVG viewBox (32)
 - [x] All 17 roles mapped; diagonals in the preview; Pin/Person = link
 - [x] Hotspots from upstream config; two corrected with evidence
-- [x] `w11cursor build` + `validate` green locally; Test-LoadCursors 17/17; Get-AniFrameTiming 2/2
+- [x] `w11cursor build` + `validate` green locally; Test-LoadCursors 34/34; Get-AniFrameTiming 4/4
 - [x] README, CREDITS, preview image
 - [ ] Maintainer: preview and hotspot corrections confirmed by eye; installed and checked on screen
 - [ ] GitHub repo created; tag v0.1.0
