@@ -29,8 +29,8 @@ If Windows ever shows a different scheme after you change the pointer size, pick
 | | Amber | Cyan | Dark |
 | --- | --- | --- | --- |
 | **Original page** | [Future cursors](https://www.gnome-look.org/p/1457141) | [Future-cyan cursors](https://www.gnome-look.org/p/1465392) | [Future-dark cursors](https://www.gnome-look.org/p/1457884) |
-| **Zip** | `future-default-w11-hidpi-v….zip` | `future-cyan-w11-hidpi-v….zip` | `future-dark-w11-hidpi-v….zip` |
-| **Scheme name** | Future W11 HiDPI | Future Cyan W11 HiDPI | Future Dark W11 HiDPI |
+| **Zip** | `future-amber-w11-hidpi-v….zip` | `future-cyan-w11-hidpi-v….zip` | `future-dark-w11-hidpi-v….zip` |
+| **Scheme name** | Future Amber W11 HiDPI | Future Cyan W11 HiDPI | Future Dark W11 HiDPI |
 
 All three are the same white cursors with a dark outline, so they stay visible on light and dark backgrounds; only
 the accent colour differs (Dark uses greys). The author publishes them as separate themes from the same source, so
@@ -103,12 +103,23 @@ at every other pointer size and display scale; its animations run 24 and 22 fram
 
 ## Uninstall
 
+Upgrading from v0.1.0? Its amber scheme was called **Future W11 HiDPI**; v0.2.0 installs it as
+**Future Amber W11 HiDPI**. To remove the old one, pick another scheme in `main.cpl`, then run this in an
+administrator PowerShell:
+
+```powershell
+reg delete "HKCU\Control Panel\Cursors\Schemes" /v "Future W11 HiDPI" /f
+Remove-Item "C:\Windows\Cursors\Future W11 HiDPI" -Recurse
+```
+
+To uninstall a current scheme:
+
 1. Run `uninstall.cmd` from the extracted folder. It removes the scheme from the list and opens Mouse Properties.
 2. Pick another scheme and click **OK**.
 3. Delete the cursor files from an administrator PowerShell, for example:
 
 ```powershell
-Remove-Item "C:\Windows\Cursors\Future W11 HiDPI" -Recurse
+Remove-Item "C:\Windows\Cursors\Future Amber W11 HiDPI" -Recurse
 Remove-Item "C:\Windows\Cursors\Future Cyan W11 HiDPI" -Recurse
 Remove-Item "C:\Windows\Cursors\Future Dark W11 HiDPI" -Recurse
 ```

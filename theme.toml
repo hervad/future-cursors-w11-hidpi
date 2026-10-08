@@ -35,8 +35,8 @@ strip_filtered = true      # upstream bakes a soft shadow in as filtered dark co
 #   copy.svg (not a Windows role) and <= 11 alpha px of 16,384 at 128 px in default/progress (the arrow's accent).
 # svg-black (Future-black, p/1519633: inverted, black arrow) is not in scope.
 [[variants]]
-id          = "default"
-scheme_name = "Future W11 HiDPI"
+id          = "amber"
+scheme_name = "Future Amber W11 HiDPI"
 svg_dir     = "upstream/src/svg"
 
 [[variants]]

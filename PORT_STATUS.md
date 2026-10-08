@@ -6,7 +6,8 @@
   `587c14d2f5bd2dc34095a4efbb1a729eb72a1d36` (2021-07-16, latest commit)
 - upstream license: GPL-3.0. `LICENSE` = GPL v3 text (SHA-256 `a0ee7460…7aac0e`), copied byte-for-byte. No
   "only"/"or later" notice. README: "based on capitaine-cursors" (LGPL-3.0, Keefer Rourke) -> credited.
-- variants: default = amber (`src/svg`, page p/1457141), cyan (`src/svg-cyan`, page p/1465392) and dark
+- variants: amber (`src/svg`, page p/1457141; scheme renamed from "Future W11 HiDPI" to "Future Amber W11 HiDPI" in
+  v0.2.0 so every variant is named), cyan (`src/svg-cyan`, page p/1465392) and dark
   (`src/svg-dark`, page p/1457884, added at the maintainer's request 2026-10-08 -> v0.2.0) - one repo for all
   (ADR-9 amendment). `svg-black` (Future-black, p/1519633; inverted, black arrow) is not in scope.
 
@@ -40,7 +41,7 @@ Future-cyan merged in (2026-10-08): no separate future-cyan-cursors-w11-hidpi re
   the same 4 sizes as upstream's build -> it is svg-cyan.
 - **Help halo** (maintainer spotted, 2026-10-08): white circle (21.5,23.5) r 6.5 sits exactly under the dark badge
   ring -> light anti-aliasing fringe ("disconnected ring") on dark backgrounds: 48 light px in the band outside the
-  ring at 96 px; 0 in upstream's store build (Inkscape + baked shadow). Fixed with overrides/{default,cyan}/help.svg
+  ring at 96 px; 0 in upstream's store build (Inkscape + baked shadow). Fixed with overrides/{amber,cyan}/help.svg
   (that element removed; 126 edge px change). Scan of every shipped source in Polar, Material and Future (remove each
   shape, keep those visible only as a thin line): help was the only light-under-dark halo; the other hits are real
   outlines (unavailable rings) or interior seams (Material busy petals).
