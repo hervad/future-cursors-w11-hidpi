@@ -126,3 +126,42 @@ same_as = "link"
 
 [cursors.person]
 same_as = "link"
+
+# ── Colour checks (toolkit v0.6.1 [[checks]], ADR-9 note). `validate` samples the BUILT layer at these design-unit
+#    points (solid areas in every variant, found on the built files) and fails the build if a measure is missed.
+[[checks]]
+name = "pointer body vs outline"
+role = "arrow"
+a = [7.25, 9.25]
+b = [5.875, 5.375]
+size = 128
+min_contrast = 3
+
+[[checks]]
+name = "Unavailable sign on its disc"
+role = "unavailable"
+a = [12.25, 11.25]
+b = [20.75, 13.25]
+min_contrast = 3
+
+# the dots, Help badge and spinner carry the variant's accent (amber / cyan / grey)
+[[checks]]
+name = "resize dot differs from the arrows"
+role = "horz"
+a = [16.25, 16.25]
+b = [7.25, 16.25]
+min_delta_e = 15
+
+[[checks]]
+name = "Move dot differs from the arrows"
+role = "move"
+a = [16.25, 16.25]
+b = [16.25, 7.25]
+min_delta_e = 15
+
+[[checks]]
+name = "Help badge differs from the pointer"
+role = "help"
+a = [21.25, 21.25]
+b = [7.25, 9.25]
+min_delta_e = 15
